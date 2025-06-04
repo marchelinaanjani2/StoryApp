@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Berbagi Cerita - Story Sharing App</title>
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#3f51b5">
+
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="./styles/responsives.css">
+    <link rel="stylesheet" href="./styles/styles.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+
+<body>
+    <header>
+        <a href="#skip-target" class="skip-link">Lewati ke konten utama</a>
+        <nav class="navbar" role="navigation" aria-label="Navigasi utama">
+            <div class="logo">
+                <i class="fas fa-book-open"></i> Berbagi Cerita
+            </div>
+            <ul class="nav-links">
+                <li><a href="#/" class="nav-link active"><i class="fas fa-home"></i> Beranda</a></li>
+                <li><a href="#/about" class="nav-link"><i class="fas fa-info-circle"></i> Tentang</a></li>
+                <li><a href="#/add" class="nav-link"><i class="fas fa-plus"></i> Tambah Cerita</a></li>
+                <li><button id="logout-button" class="logout-button"><i class="fas fa-sign-out-alt"></i> Logout</button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="main-content" tabindex="-1" class="main-content">
+    </main>
+
+
+    <div id="loader" class="loader" style="display: none;">
+        <div class="spinner"></div>
+        <p>Memuat...</p>
+    </div>
+
+    <footer>
+        <div class="container">
+            <hr>
+            <div class="footer-content">
+                <a class="brand-name__link" href="#/">
+                    <i class="fas fa-book-open"></i>
+                    <span class="brand-name__link__text">Berbagi Cerita</span>
+                </a>
+                <p class="copyright">&copy; 2025 Dicoding. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="./scripts/index.js" type="module"></script>
+</body>
+
+</html>
