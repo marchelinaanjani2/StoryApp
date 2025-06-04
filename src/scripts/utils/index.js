@@ -45,12 +45,12 @@ export function setupSkipToContent(skipLink, getTargetElement, options = {}) {
     const focusEl = options.focusElementSelector
       ? targetElement.querySelector(options.focusElementSelector) || targetElement
       : targetElement;
-    
+
     console.log('[SKIP-TO-CONTENT] Focus element:', focusEl.id || focusEl.tagName);
 
     // Set tabindex agar bisa difokus
     focusEl.setAttribute('tabindex', '-1');
-    
+
     // Focus dengan slight delay untuk memastikan element sudah ready
     setTimeout(() => {
       focusEl.focus({ preventScroll: true });
@@ -67,7 +67,7 @@ export function setupSkipToContent(skipLink, getTargetElement, options = {}) {
 
   // Add click listener
   skipLink.addEventListener('click', handleSkip);
-  
+
   // Add keyboard listener for Enter/Space (jika pakai role="button")
   skipLink.addEventListener('keydown', (event) => {
     if (event.key === 'Enter' || event.key === ' ') {
@@ -177,16 +177,28 @@ export async function registerServiceWorker() {
   }
 
   try {
-    const registration = await navigator.serviceWorker.register('/sw.js');
+    const registration = await navigator.serviceWorker.register('/sw.js', { scope: '/' });
     console.log('Service worker telah terpasang', registration);
-    // Tambahkan event listener untuk message dari SW
-      navigator.serviceWorker.addEventListener('message', (event) => {
-        if (event.data.type === 'STORIES_UPDATED') {
-         
-        }
-      });
+    console.log('SW registered with scope:', registration.scope);
 
-      return registration;
+    if (registration.installing) {
+      console.log('SW installing');
+      registration.installing.addEventListener('statechange', (e) => {
+        console.log('SW state:', e.target.state);
+      });
+    } else if (registration.waiting) {
+      console.log('SW waiting');
+    } else if (registration.active) {
+      console.log('SW active');
+    }
+    // Tambahkan event listener untuk message dari SW
+    navigator.serviceWorker.addEventListener('message', (event) => {
+      if (event.data.type === 'STORIES_UPDATED') {
+
+      }
+    });
+
+    return registration;
   } catch (error) {
     console.error('Failed to install service worker:', error);
   }

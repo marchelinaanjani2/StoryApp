@@ -1,4 +1,3 @@
-// ===== ENHANCED HOME-PAGE.JS =====
 import {
   generateLoaderAbsoluteTemplate,
   generateStoryListEmptyTemplate,

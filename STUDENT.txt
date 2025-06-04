@@ -1,2 +1,2 @@
-APP_URL=<url_aplikasi>
+APP_URL= https://wonderful-donut-4f32c2.netlify.app/
 MAP_SERVICE_API_KEY=e4SQes1vdPMEc1tUVmDD 
